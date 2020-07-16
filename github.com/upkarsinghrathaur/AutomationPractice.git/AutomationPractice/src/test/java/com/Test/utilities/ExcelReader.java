@@ -32,8 +32,8 @@ public class ExcelReader {
 		public static int getRowCount()
 		{	
 			
-			int number=sheet.getLastRowNum();
-			return number;	
+			int rowNumber=sheet.getLastRowNum();
+			return rowNumber;	
 		}
 		
 		// returns number of columns in a sheet	
@@ -41,7 +41,7 @@ public class ExcelReader {
 		{		
 				
 				row = sheet.getRow(0);			
-				return row.getLastCellNum();		
+				return row.getLastCellNum();	
 		}
 		
 		public static String getCellData(int colNum,int rowNum)
@@ -63,15 +63,19 @@ public class ExcelReader {
 		}
 		
 		public static boolean isRowEmpty(int rowNum)
-		{
-			
+		{			
 			XSSFRow rowCount= sheet.getRow(rowNum);
-		    for (int c = rowCount.getFirstCellNum(); c < rowCount.getLastCellNum(); c++) 
+			if (rowCount == null || rowCount.getLastCellNum() <= 0) 
+			{
+	            return true;
+	        }
+		   	    			    
+			for (int c = rowCount.getFirstCellNum(); c < rowCount.getLastCellNum(); c++) 
 		    {
 		        XSSFCell cell = rowCount.getCell(c);
 		        if (cell != null && cell.getCellType() != XSSFCell.CELL_TYPE_BLANK)
-		            return false;
-		    }
+		        return false;
+		    }		   
 		    return true;
 		}
 }

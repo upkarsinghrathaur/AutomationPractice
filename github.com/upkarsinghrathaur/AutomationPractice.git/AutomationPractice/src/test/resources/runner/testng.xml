@@ -6,7 +6,7 @@
 <test name="Chrome">
 <parameter name="browser" value= "GC"/>
 <classes>
-<class name= "com.Test.setUp.BaseTest"/>
+<class name= "com.Test.testCase.LoginTest"/>
 </classes> 
 </test>
 
