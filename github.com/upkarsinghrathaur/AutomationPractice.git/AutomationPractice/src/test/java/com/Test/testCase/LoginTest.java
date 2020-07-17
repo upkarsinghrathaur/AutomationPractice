@@ -7,6 +7,7 @@ import com.Test.pageObject.HomePage;
 import com.Test.pageObject.LoginPage;
 import com.Test.setUp.BaseTest;
 import com.Test.utilities.DataUtil;
+import com.Test.utilities.RandomGenerator;
 
 public class LoginTest extends BaseTest {
 
@@ -18,13 +19,12 @@ public class LoginTest extends BaseTest {
 		LoginPage login= new LoginPage(driver, wait);
 		CreateAccountPage account= new CreateAccountPage(driver, wait);
 		home.clickSignInButton();
-		login.enterCreateEmail(data.get("createEmail"));
+		login.enterCreateEmail(RandomGenerator.getStringForEmail()+"@gmail.com");
 		login.clickCreateButton();
 		account.selectGender(data.get("gender"));
 		account.enterFisrtName(data.get("firstName"));
 		account.enterLastName(data.get("lastName"));
 		account.enterPassword(data.get("password"));
-		//account.selectNewsLetterBox(data.get("newLetterBox"));
 		account.enterAddressFirstName(data.get("addressFirstName"));
 		account.enterAddressLastName(data.get("addressLastName"));
 		account.enterCompanyName(data.get("company"));
