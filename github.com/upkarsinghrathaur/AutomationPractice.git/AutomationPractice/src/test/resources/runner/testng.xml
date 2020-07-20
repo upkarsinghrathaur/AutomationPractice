@@ -3,8 +3,8 @@
 <suite name= "Suite1" parallel="tests" thread-count="2">
 
 <listeners>
-<listener class-name ="com.Test.utilities.AnnotationTransformer">
-</listener>
+<listener class-name ="com.Test.listeners.AnnotationTransformer"></listener>
+<listener class-name ="com.Test.listeners.ExtentReportListeners"></listener>
 </listeners>
 
 <test name="Chrome">
