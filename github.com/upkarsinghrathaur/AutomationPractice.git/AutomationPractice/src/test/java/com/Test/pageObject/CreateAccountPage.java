@@ -103,12 +103,13 @@ public class CreateAccountPage {
 	
 	public void enterAddressFirstName(String addFirstName)
 	{
-		//js.executeScript("arguments[0].scrollIntoView();", id_addressFirstName);
+		WaitingMethods.waitElementTillVisibility(id_addressFirstName, wait).clear();
 		WaitingMethods.waitElementTillVisibility(id_addressFirstName, wait).sendKeys(addFirstName);		
 	}
 	
 	public void enterAddressLastName(String addLastName)
 	{
+		WaitingMethods.waitElementTillVisibility(id_addressLastName, wait).clear();
 		WaitingMethods.waitElementTillVisibility(id_addressLastName, wait).sendKeys(addLastName);
 	}
 	

@@ -5,6 +5,8 @@ import org.testng.asserts.SoftAssert;
 import com.Test.pageObject.CreateAccountPage;
 import com.Test.pageObject.HomePage;
 import com.Test.pageObject.LoginPage;
+import com.Test.pageObject.MyAccountPage;
+import com.Test.pageObject.PaymentPage;
 import com.Test.setUp.BaseTest;
 import com.Test.utilities.DataUtil;
 import com.Test.utilities.RandomGenerator;
@@ -37,7 +39,30 @@ public class LoginTest extends BaseTest {
 		account.enterHomePhoneNumber(data.get("homePhone"));
 		account.enterMobilePhoneNumber(data.get("mobilePhone"));
 		account.enterAddressAlias(data.get("addressAlias"));
-		//account.clickRegisterButton();
+		account.clickRegisterButton();
+		softAssert.assertAll();
+	}
+	
+	@Test(priority=2, dataProviderClass=DataUtil.class , dataProvider="excelData")
+	public void addToCartProduct(Hashtable<String, String> data)
+	{
+		
+	    softAssert= new SoftAssert();
+		MyAccountPage account= new MyAccountPage(driver, wait);
+		PaymentPage payment= new PaymentPage(driver, wait);
+		softAssert.assertEquals(account.VerifyMyAccountPage(), data.get("accountName"));
+		account.clickOnWomenMenu();
+		account.clickOnAddToCartProduct();
+		softAssert.assertEquals(account.verifyProductAddedToCart(), data.get("cartMessage"));
+		account.clickOnProceedToCheckOutButton();	
+		account.clickOnProceedToCheckOutFromCartButton();
+		account.clickOnProceedToCheckOutFromAddressButton();
+		account.clickOnAgreeTermsConditionsCheckBox();
+		account.clickOnProceedToCheckOutFromShippingButton();
+		softAssert.assertEquals(payment.verifyProductPrice(), data.get("productPrice"));
+		payment.clickOnPayByBankWireButton();
+		payment.clickOnConfirmOrderButton();
+		softAssert.assertEquals(payment.verifyOrderIsCompeleted(), data.get("orderCompleteMessage"));
 		softAssert.assertAll();
 	}
 	
