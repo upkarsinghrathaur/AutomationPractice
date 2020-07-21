@@ -6,6 +6,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import com.Test.listeners.ExtentReportListeners;
+
 public class ExcelReader {
 
 	public  FileInputStream fis = null;
@@ -31,17 +33,26 @@ public class ExcelReader {
 	    //returns the row count in a sheet
 		public static int getRowCount()
 		{	
-			
-			int rowNumber=sheet.getLastRowNum();
-			return rowNumber;	
+			int rowNumber=0;
+			try {
+				rowNumber= sheet.getLastRowNum();
+			} catch (Exception e) {
+				ExtentReportListeners.testReport.get().fail("Row number not found.");
+			}	
+			return rowNumber;
 		}
 		
 		// returns number of columns in a sheet	
 		public static int getColumnCount()
 		{		
-				
-				row = sheet.getRow(0);			
-				return row.getLastCellNum();	
+				int colNumber=0;
+				try {
+					row = sheet.getRow(0);
+					colNumber = row.getLastCellNum();
+				} catch (Exception e) {
+					ExtentReportListeners.testReport.get().fail("Column number not found.");
+				}
+				return colNumber;
 		}
 		
 		public static String getCellData(int colNum,int rowNum)

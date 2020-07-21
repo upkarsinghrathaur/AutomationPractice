@@ -15,16 +15,16 @@ public class HomePage {
 		this.wait = wait;
 	}
 
-	private static final By xpath_signIn= By.xpath(".//a[@class='login']");
-	private static final By xpath_contactUs= By.xpath(".//a[@title='Contact Us']");
+	private static final By signIn_button= By.xpath(".//a[@class='login']");
+	private static final By contactUs_button= By.xpath(".//a[@title='Contact Us']");
 	
 	public void clickSignInButton()
 	{
-		WaitingMethods.waitElementTillClickable(xpath_signIn, wait).click();
+		WaitingMethods.waitElementTillClickable(signIn_button, wait).click();
 	}
 	
 	public void clickContactUsButton()
 	{
-		WaitingMethods.waitElementTillClickable(xpath_contactUs, wait).click();
+		WaitingMethods.waitElementTillClickable(contactUs_button, wait).click();
 	}
 }

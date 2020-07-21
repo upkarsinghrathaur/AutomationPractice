@@ -13,8 +13,8 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 public class ExtentReportListeners implements ITestListener {
 
-	Date d = new Date();
-	String fileName = "Extent_" + d.toString().replace(":", "_").replace(" ", "_") + ".html";
+	Date date = new Date();
+	String fileName = "Extent_" + date.toString().replace(":", "_").replace(" ", "_") + ".html";
 	ExtentReports extent = ExtentManager.createInstance(System.getProperty("user.dir")+"\\reports\\"+fileName);
 	public static ThreadLocal<ExtentTest> testReport = new ThreadLocal<ExtentTest>();
 	
@@ -28,19 +28,19 @@ public class ExtentReportListeners implements ITestListener {
 
 	public void onStart(ITestContext arg0) {
 		// TODO Auto-generated method stub
-		
+		ExtentReportListeners.testReport.get().info("Test Started");
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
-		
-	}
+		ExtentReportListeners.testReport.get().fail("Test Failed with success percentage");
+      }
 
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-		String excepionMessage=Arrays.toString(result.getThrowable().getStackTrace());
+		String excepionMessage= Arrays.toString(result.getThrowable().getStackTrace());
 		testReport.get().fail("<details>" + "<summary>" + "<b>" + "<font color=" + "red>" + "Exception Occured: Click Here"
-				+ "</font>" + "</b >" + "</summary>" +excepionMessage.replaceAll(",", "<br>")+"</details>"+" \n");				
+				+ "</font>" + "</b >" + "</summary>" +excepionMessage.replaceAll(",", "<br>")+"</details>"+" \n");			
 		String methodName=result.getMethod().getMethodName();
 		String failureLogg="<b>"+"TEST CASE:- "+ methodName.toUpperCase()+ "  FAILED"+"</b>";
 		Markup m = MarkupHelper.createLabel(failureLogg, ExtentColor.RED);
