@@ -45,8 +45,7 @@ public class LoginTest extends BaseTest {
 	
 	@Test(priority=2, dataProviderClass=DataUtil.class , dataProvider="excelData")
 	public void addToCartProduct(Hashtable<String, String> data)
-	{
-		
+	{		
 	    softAssert= new SoftAssert();
 		MyAccountPage account= new MyAccountPage(driver, wait);
 		PaymentPage payment= new PaymentPage(driver, wait);

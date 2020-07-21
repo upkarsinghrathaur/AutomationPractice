@@ -14,34 +14,34 @@ public class LoginPage {
 	WebDriver driver;
 	WebDriverWait wait;
 	
-	private static final By id_createEmail= By.id("email_create");
-	private static final By id_createButton= By.id("SubmitCreate");
-	private static final By id_email= By.id("email");
-	private static final By id_password= By.id("passwd");
-	private static final By id_submitLoginButton= By.id("SubmitLogin");
+	private static final By createEmail_field= By.id("email_create");
+	private static final By create_button= By.id("SubmitCreate");
+	private static final By email_field= By.id("email");
+	private static final By password_field= By.id("passwd");
+	private static final By submitLogin_button= By.id("SubmitLogin");
 	
 	public void enterCreateEmail(String createEmail)
 	{
-		WaitingMethods.waitElementTillVisibility(id_createEmail, wait).sendKeys(createEmail);
+		WaitingMethods.waitElementTillVisibility(createEmail_field, wait).sendKeys(createEmail);
 	}
 	
 	public void clickCreateButton()
 	{
-		WaitingMethods.waitElementTillClickable(id_createButton, wait).click();
+		WaitingMethods.waitElementTillClickable(create_button, wait).click();
 	}
 	
 	public void enterEmail(String email)
 	{
-		WaitingMethods.waitElementTillVisibility(id_email, wait).sendKeys(email);
+		WaitingMethods.waitElementTillVisibility(email_field, wait).sendKeys(email);
 	}
 	
 	public void enterPassword(String password)
 	{
-		WaitingMethods.waitElementTillVisibility(id_password, wait).sendKeys(password);
+		WaitingMethods.waitElementTillVisibility(password_field, wait).sendKeys(password);
 	}
 	
 	public void clickLoginButton()
 	{
-		WaitingMethods.waitElementTillClickable(id_submitLoginButton, wait).click();
+		WaitingMethods.waitElementTillClickable(submitLogin_button, wait).click();
 	}
 }
