@@ -1,0 +1,15 @@
+{
+"fields": {
+  
+  "project":
+  {
+          "key": "AP"
+    },
+       "summary": "Issue 2 is created",
+       "description": "Creating my second bug",
+       "issuetype": 
+       {
+          "name": "Bug"
+       }
+   }
+}

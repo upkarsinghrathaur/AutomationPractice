@@ -7,18 +7,17 @@
 <listener class-name ="com.Test.listeners.ExtentReportListeners"></listener>
 </listeners>
 
-<test name="Chrome">
+<!-- <test name="Chrome">
 <parameter name="browser" value= "GC"/>
 <classes>
 <class name= "com.Test.testCase.LoginTest"/>
 </classes> 
-</test>
-
-<!-- <test name= "Firefox">
-<parameter name="browser" value= "FF"/>
-<classes>
-<class name= "com.Test.setUp.BaseTest"/>
-</classes>
 </test> -->
+
+ <test name= "Firefox">
+<classes>
+<class name= "com.Test.APITesting.APITestCases"/>
+</classes>
+</test>
 
 </suite>
