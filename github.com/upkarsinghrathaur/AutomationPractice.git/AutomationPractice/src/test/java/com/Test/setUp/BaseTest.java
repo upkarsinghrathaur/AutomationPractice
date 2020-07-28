@@ -4,7 +4,7 @@ import java.io.IOException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
@@ -28,7 +28,7 @@ public class BaseTest {
 	}
 	
 	
-	@AfterClass
+	@AfterSuite
 	public void closeApplication()
 	{
 		driver.close();

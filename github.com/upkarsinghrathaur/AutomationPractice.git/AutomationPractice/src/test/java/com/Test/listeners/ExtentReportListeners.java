@@ -28,7 +28,7 @@ public class ExtentReportListeners implements ITestListener {
 
 	public void onStart(ITestContext arg0) {
 		// TODO Auto-generated method stub
-		ExtentReportListeners.testReport.get().info("Test Started");
+		//ExtentReportListeners.testReport.get().info("Test Started");
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {

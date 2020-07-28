@@ -7,7 +7,7 @@ import io.restassured.RestAssured;
 
 public class ApiBaseTest {
 	
-	public static SoftAssert softAssert;
+	public SoftAssert softAssert;
 	
 	@BeforeClass
 	public void setURI() throws IOException

@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name= "Suite1" parallel="tests" thread-count="2">
+<suite name="Suite1" verbose="2">
 
-<listeners>
-<listener class-name ="com.Test.listeners.AnnotationTransformer"></listener>
-<listener class-name ="com.Test.listeners.ExtentReportListeners"></listener>
-</listeners>
+    <listeners>
+        <listener
+            class-name="com.Test.listeners.AnnotationTransformer" />
+        <listener
+            class-name="com.Test.listeners.ExtentReportListeners" />
+    </listeners>
 
- <test name="Chrome">
-<parameter name="browser" value= "GC"/>
-<classes>
-<class name= "com.Test.testCase.LoginTest"/>
-</classes> 
-</test>
-
- <!-- <test name= "Firefox">
-<classes>
-<class name= "com.Test.APITesting.APITestCases"/>
-</classes>
-</test> -->
-
+    <test name="Chrome">
+    <parameter name="browser" value= "GC" />
+        <classes>
+            <class name="com.Test.testCase.LoginTest" />
+        </classes>
+    </test>
 </suite>
